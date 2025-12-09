@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Amplop Belakang -->
+  <path d="M4 16C4 13.7909 5.79086 12 8 12H56C58.2091 12 60 13.7909 60 16V48C60 50.2091 58.2091 52 56 52H8C5.79086 52 4 50.2091 4 48V16Z" fill="#FDF2F4" stroke="#ff6b81" stroke-width="4"/>
+  
+  <!-- Hati (Isi Paket) -->
+  <path d="M32 14C28 10 20 10 18 18C16 24 28 34 32 38C36 34 48 24 46 18C44 10 36 10 32 14Z" fill="#ff6b81"/>
+  
+  <!-- Lipatan Amplop -->
+  <path d="M4 16L32 36L60 16" stroke="#ff6b81" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 36V52" stroke="#ff6b81" stroke-width="2" stroke-opacity="0.3"/>
+</svg>
