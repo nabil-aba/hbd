@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "targetName": "Fitriana Ardiansah",
+    "senderName": "Nabil Aba",
+    "locationSender": "Sukoharjo",
+    "locationTarget": "Pati",
+    "distance": "± 118 KM",
+    "targetAge": "22"
+  },
+  "assets": {
+    "photoTarget": "./assets/target.webp",
+    "photoSender": "./assets/sender.webp",
+    "secretPhoto": "./assets/secret.webp",
+    "sticker1": "./assets/dudu1.gif",
+    "sticker2": "./assets/dudu2.gif",
+    "bgm": "./assets/bgm.mp3",
+    "launchAudio": "./assets/launch.mp3",
+    "explosionAudio": "./assets/explosion.mp3",
+    "prankAudio": "./assets/prank.mp3"
+  },
+  "texts": {
+    "loading": "Mensterilkan Ruangan...",
+    "intro": {
+      "title": "Paket Spesial Masuk",
+      "subtitle": "Kepada:",
+      "desc1": "Halo! Ada kiriman paket data spesial yang tertunda.",
+      "desc2": "Sistem mendeteksi pengirim dari",
+      "button": "LACAK PENGIRIMAN 📡"
+    },
+    "ldr": {
+      "title": "PELACAKAN PAKET",
+      "labelDistance": "Jarak Tercatat",
+      "labelStatus": "Status",
+      "statusJourney": "PERJALANAN",
+      "statusReceived": "DITERIMA",
+      "button": "KONFIRMASI LOKASI ✅",
+      "steps": [
+        "Menyiapkan Paket... 📡",
+        "Melacak Lokasi... 🔍",
+        "Titik Asal: {loc} 🏠",
+        "Mengirim Paket... ❤️",
+        "Paket Diterima! ✅"
+      ]
+    },
+    "scanner": {
+      "title": "PENGECEKAN PENERIMA PAKET",
+      "step1": "Mendeteksi Wajah Cantiknya... 😍",
+      "step2": "Menganalisis Karakternya... 📊",
+      "success": "Lolos Pengecekan! ✅",
+      "button": "LANJUT MEMBUKA PAKET 📋",
+      "traits": [
+        {
+          "name": "Cantik",
+          "percent": 100,
+          "color": "#ff9a9e",
+          "type": "overflow"
+        },
+        {
+          "name": "Nggemesin",
+          "percent": 100,
+          "color": "#fd79a8",
+          "type": "overflow"
+        },
+        {
+          "name": "Ngambekan",
+          "percent": 100,
+          "color": "#84fab0",
+          "type": "overflow"
+        },
+        {
+          "name": "Baik Hati",
+          "percent": 100,
+          "color": "#a29bfe",
+          "type": "overflow"
+        }
+      ]
+    },
+    "briefing": {
+      "title": "⚠️ SOP PEMBUKAAN PAKET",
+      "subtitle": "MOHON DIBACA SEBELUM LANJUT",
+      "button": "SIAP LAKSANAKAN! 🫡",
+      "rules": [
+        "Penerima <strong>dilarang cemberut</strong> sebelum melanjutkan. Happy Kiyowo.",
+        "<strong>Dilarang overthinking</strong> soal jarak. Kita pasti ketemu kok!",
+        "Selesaikan <strong>3 Misi</strong> dengan sabar untuk membuka paket ini."
+      ]
+    },
+    "game1": {
+      "title": "Misi 1: Buka Kunci 🔓",
+      "desc": "Geser tombol ke kanan untuk masuk ke hatimu.",
+      "locked": "GESER KE SINI  ➡️",
+      "unlocked": "BERHASIL! 🎉"
+    },
+    "game2": {
+      "title": "Misi 2: Cek Perasaan 🔮",
+      "desc": "Gosok layar di bawah ini untuk melihat perasaan pengirim!",
+      "secretText": "I LOVE YOU, CANTIKKU ❤️",
+      "resultText": "TERBONGKAR! 😍",
+      "progressText": "% Terbuka"
+    },
+    "game3": {
+      "title": "Misi 3: Pompa Hatinya ❤️",
+      "desc": "Buktikan sayangmu full, jangan setengah-setengah ya!",
+      "resultText": "YEAY, SAYANGNYA FULL 💖",
+      "button": "🔥 TEKAN TOMBOL INI"
+    },
+    "opening": {
+      "title": "Membuka Surat...",
+      "subtitle": "Semua misi berhasil diselesaikan!"
+    },
+    "letter": {
+      "title": "Happy Birthday, Sayang!",
+      "body": [
+        "<strong>Selamat ulang tahun yang ke-22, Fitriana. 🎉</strong>",
+        "Aku tau banget capeknya kamu. Maka dari itu, sampai kamu di titik ini, aku mau bilang: <strong>Aku Bangga Banget Sama Kamu.</strong>",
+        "Tangan yang capek itu yang menyambut kehidupan baru lahir ke dunia. Lelahmu itu mulia banget, sayang.",
+        "Maaf ya kalau hari ini raga kita belum bisa bertemu.",
+        "Doaku sederhana: Semoga kamu selalu sehat, dimudahkan segala urusannya, rezekinya dilancarkan, dan ilmunya berkah.",
+        "Semoga juga cepat selesai profesinya.",
+        "Kalau dunia lagi jahat atau capeknya udah gak tertahan, lari ke aku ya? Aku siap jadi tempat istirahatmu."
+      ],
+      "quote": "\"Focus on your goals.\"",
+      "closing": "With endless love,",
+      "footerHint": "Jangan lupa diklik ya...",
+      "secretButton": "🎁 ADA KEJUTAN KECIL"
+    },
+    "giftModal": {
+      "ask": {
+        "title": "Mau kado gak sayang? 🎁",
+        "btnYes": "MAU BANGET!",
+        "btnNo": "Engga deh"
+      },
+      "prank": {
+        "title": "Gausah yaaa... 😜",
+        "desc1": "Udah gede masa minta kado wkwk.",
+        "desc2": "Doa aja cukup kan? Hahaha canda sayang ❤️",
+        "btnClose": "Iya deh iya 😤"
+      }
+    }
+  }
+}
