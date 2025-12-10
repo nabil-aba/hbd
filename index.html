@@ -3,164 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HBD Creative Hub | Nabil</title>
-
-    <!-- Font: Syne & Inter -->
+    <title>HBD Collections | Nabil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Titan+One&family=Work+Sans:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
     <style>
       :root {
-        --primary: #4f46e5;
-        --black: #111827;
-        --paper: #ffffff;
-        --grid-line: #e5e7eb;
+        --bg-color: #fffbeb;
+        --primary: #ff4785;
+        --secondary: #4f46e5;
+        --accent: #fbbf24;
+        --black: #18181b;
+        --border: 3px;
       }
-
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
+      ::-webkit-scrollbar {
+        width: 18px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-color);
+        border-left: var(--border) solid var(--black);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border: var(--border) solid var(--black);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary);
+      }
+      html {
+        scrollbar-width: auto;
+        scrollbar-color: var(--secondary) var(--bg-color);
+      }
       body {
-        font-family: "Inter", sans-serif;
-        background-color: #f8fafc;
+        font-family: "Work Sans", sans-serif;
+        background-color: var(--bg-color);
         color: var(--black);
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
       }
-
-      /* --- BACKGROUND ELEMENTS (Tetap sama) --- */
-      .mesh-bg {
+      .sprinkles-bg {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -5;
-        background: #f1f5f9;
-        overflow: hidden;
+        background-image: radial-gradient(#e5e7eb 2px, transparent 2px);
+        background-size: 20px 20px;
+        opacity: 0.5;
       }
-      .blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        opacity: 0.6;
-        animation: floatBlob 8s infinite alternate ease-in-out;
-      }
-      .b1 {
-        width: 50vh;
-        height: 50vh;
-        background: #c7d2fe;
-        top: -10%;
-        left: -10%;
-      }
-      .b2 {
-        width: 60vh;
-        height: 60vh;
-        background: #fbcfe8;
-        bottom: -10%;
-        right: -10%;
-        animation-delay: -4s;
-      }
-      @keyframes floatBlob {
-        from {
-          transform: translate(0, 0);
-        }
-        to {
-          transform: translate(30px, 50px);
-        }
-      }
-
-      .halftone {
+      .confetti-container {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -4;
-        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-        background-size: 24px 24px;
         pointer-events: none;
+        overflow: hidden;
       }
-
-      .grid-floor {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40vh;
-        z-index: -3;
-        perspective: 600px;
-        pointer-events: none;
-        mask-image: linear-gradient(to top, black, transparent);
-        -webkit-mask-image: linear-gradient(to top, black, transparent);
-      }
-      .grid-plane {
+      .confetti {
         position: absolute;
-        width: 200%;
-        height: 200%;
-        left: -50%;
-        top: 0;
-        background-image: linear-gradient(
-            rgba(79, 70, 229, 0.2) 1px,
-            transparent 1px
-          ),
-          linear-gradient(90deg, rgba(79, 70, 229, 0.2) 1px, transparent 1px);
-        background-size: 40px 40px;
-        transform: rotateX(60deg);
-        animation: gridWalk 3s linear infinite;
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary);
+        animation-name: fall;
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: backwards;
       }
-      @keyframes gridWalk {
-        from {
-          background-position: 0 0;
+      @keyframes fall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+          opacity: 0;
         }
-        to {
-          background-position: 0 40px;
+        10% {
+          opacity: 1;
         }
-      }
-
-      .curved-svg {
-        position: fixed;
-        width: 100%;
-        height: 80px;
-        z-index: -2;
-        pointer-events: none;
-      }
-      .svg-top {
-        top: 50px;
-      }
-      .svg-bottom {
-        bottom: 50px;
-        transform: scaleY(-1);
-      }
-      .dash-path {
-        fill: none;
-        stroke: var(--black);
-        stroke-width: 2;
-        stroke-dasharray: 12, 12;
-        opacity: 0.3;
-        animation: dashRun 20s linear infinite;
-      }
-      @keyframes dashRun {
-        to {
-          stroke-dashoffset: -1000;
+        100% {
+          transform: translateY(110vh) rotate(720deg);
+          opacity: 0;
         }
       }
-
-      /* --- HEADER --- */
+      .marquee-wrapper {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 0;
+        border-bottom: var(--border) solid var(--black);
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        z-index: 20;
+      }
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+        font-weight: 900;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
       .container {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 4rem 2rem;
+        padding: 4rem 1.5rem;
         position: relative;
         z-index: 10;
       }
@@ -168,202 +135,311 @@
         text-align: center;
         margin-bottom: 5rem;
       }
-      h1 {
-        font-family: "Syne", sans-serif;
-        font-size: 4rem;
-        font-weight: 800;
-        line-height: 1;
-        color: var(--black);
+      .main-logo-svg {
+        width: 110px;
+        height: 110px;
         margin-bottom: 1rem;
-        text-shadow: 4px 4px 0px rgba(79, 70, 229, 0.2);
+        filter: drop-shadow(5px 5px 0px var(--black));
+        animation: bounce 2s infinite;
       }
-      .subtitle {
-        font-family: "Inter", sans-serif;
-        background: var(--black);
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+      h1 {
+        font-family: "Titan One", cursive;
+        font-size: clamp(3.5rem, 10vw, 6rem);
+        line-height: 0.9;
         color: white;
-        padding: 8px 20px;
-        border-radius: 100px;
-        font-weight: 600;
-        font-size: 1rem;
-        display: inline-block;
+        -webkit-text-stroke: 3px var(--black);
+        text-shadow: 6px 6px 0px var(--primary);
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
         transform: rotate(-2deg);
       }
-
-      /* --- RELAYOUT KARTU BARU --- */
+      .h1-sub {
+        display: block;
+        font-size: 0.5em;
+        color: var(--accent);
+        text-shadow: 6px 6px 0px var(--black);
+        -webkit-text-stroke: 2px var(--black);
+        transform: rotate(2deg) translateX(10px);
+      }
+      .badge {
+        display: inline-block;
+        background: var(--black);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      }
       #project-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 3rem;
       }
-
       .card {
-        background-color: var(--paper);
-        border: 3px solid var(--black);
-        border-radius: 0; /* Ubah jadi kotak tajam biar lebih brutalist */
+        background: white;
+        border: var(--border) solid var(--black);
+        border-radius: 16px;
         text-decoration: none;
+        color: var(--black);
         position: relative;
-        transition: all 0.2s ease;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 260px;
-
-        /* Texture Kotak-kotak */
-        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-        background-size: 20px 20px;
-
-        box-shadow: 10px 10px 0px var(--black); /* Shadow hitam tajam */
+        overflow: hidden;
+        box-shadow: 6px 6px 0px var(--secondary);
+        transition: transform 0.2s, box-shadow 0.2s;
       }
-
       .card:hover {
-        transform: translate(-5px, -5px);
-        box-shadow: 15px 15px 0px var(--primary); /* Shadow ungu pas hover */
+        transform: translate(-5px, -5px) rotate(1deg);
+        box-shadow: 10px 10px 0px var(--primary);
+        z-index: 5;
       }
-
-      /* Bagian Atas Kartu (Nomor & Icon) */
-      .card-top {
+      .card-header {
+        background: var(--black);
+        padding: 0.8rem 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 1.5rem 0 1.5rem;
+        border-bottom: var(--border) solid var(--black);
       }
-
-      /* Nomor Urut (Outline Font) */
-      .card-num {
-        font-family: "Syne", sans-serif;
-        font-size: 3rem;
-        font-weight: 800;
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(17, 24, 39, 0.3); /* Efek garis tepi transparan */
-        line-height: 1;
-      }
-
-      .card-icon {
-        font-size: 1.5rem;
-        color: var(--black);
-      }
-
-      /* Bagian Tengah (Judul) */
-      .card-body {
-        padding: 0 1.5rem;
-        flex-grow: 1;
+      .circles {
         display: flex;
-        align-items: center; /* Judul vertikal center */
+        gap: 5px;
       }
-
-      .card-title {
-        font-family: "Syne", sans-serif;
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--black);
-        line-height: 1;
-        word-break: break-word; /* Biar ga bablas */
-      }
-
-      /* Bagian Bawah (Action) */
-      .card-footer {
-        border-top: 3px solid var(--black);
-        padding: 1rem 1.5rem;
+      .c {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
         background: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: 0.3s;
+        border: 1px solid var(--black);
       }
-
-      .card:hover .card-footer {
-        background: var(--black); /* Footer jadi hitam pas hover */
+      .c:nth-child(1) {
+        background: #ff5f57;
       }
-
-      .btn-text {
-        font-weight: 700;
+      .c:nth-child(2) {
+        background: #febc2e;
+      }
+      .c:nth-child(3) {
+        background: #28c840;
+      }
+      .card-tag {
+        color: white;
+        font-weight: 900;
         font-size: 0.9rem;
         letter-spacing: 1px;
+      }
+      .card-body {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        flex-grow: 1;
+        background: repeating-linear-gradient(
+          -45deg,
+          #ffffff,
+          #ffffff 10px,
+          #f9fafb 10px,
+          #f9fafb 20px
+        );
+      }
+      .card-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.1));
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .card:hover .card-icon {
+        transform: scale(1.2) rotate(-10deg);
+      }
+      .card-title {
+        font-family: "Work Sans", sans-serif;
+        font-weight: 900;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+      .card-footer {
+        padding: 1rem;
+        background: white;
+        border-top: var(--border) solid var(--black);
+      }
+      .open-btn {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 0;
+        background: var(--accent);
         color: var(--black);
-        transition: 0.3s;
+        font-weight: 900;
+        border: 2px solid var(--black);
+        border-radius: 8px;
+        box-shadow: 2px 2px 0px var(--black);
+        text-align: center;
+        transition: 0.2s;
+        text-transform: uppercase;
       }
-
-      .footer-arrow {
-        color: var(--black);
-        transition: 0.3s;
+      .card:hover .open-btn {
+        background: var(--primary);
+        color: white;
+        box-shadow: 4px 4px 0px var(--black);
+        transform: translateY(-2px);
       }
-
-      /* Hover Effect Text Footer */
-      .card:hover .btn-text,
-      .card:hover .footer-arrow {
-        color: white; /* Text jadi putih pas hover */
+      .loader-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
       }
-
-      .card:hover .footer-arrow {
-        transform: translateX(5px);
-      }
-
-      /* Loader */
-      .loader {
+      .cake-loader {
         width: 50px;
         height: 50px;
-        margin: 50px auto;
-        background: var(--black);
-        animation: flip 1.2s infinite;
+        background: var(--primary);
+        border: 3px solid var(--black);
+        border-radius: 50%;
+        animation: pulse 1s infinite;
       }
-      @keyframes flip {
+      @keyframes pulse {
         0% {
-          transform: perspective(200px) rotateX(0);
-          opacity: 1;
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(255, 71, 133, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 15px rgba(255, 71, 133, 0);
         }
         100% {
-          transform: perspective(200px) rotateX(180deg);
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(255, 71, 133, 0);
+        }
+      }
+      @keyframes popUp {
+        from {
           opacity: 0;
+          transform: scale(0.8) translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
         }
       }
     </style>
   </head>
   <body>
-    <div class="mesh-bg">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        🎉 HAPPY BIRTHDAY • WISHES • TEMPLATES • PARTY • CELEBRATION • CAKE •
+        SURPRISE • 🎉 HAPPY BIRTHDAY • WISHES • TEMPLATES • PARTY • CELEBRATION
+        • CAKE • SURPRISE •
+      </div>
     </div>
-    <div class="halftone"></div>
-    <div class="grid-floor"><div class="grid-plane"></div></div>
-    <svg
-      class="curved-svg svg-top"
-      viewBox="0 0 1000 100"
-      preserveAspectRatio="none"
-    >
-      <path class="dash-path" d="M0,80 Q500,0 1000,80" />
-    </svg>
-    <svg
-      class="curved-svg svg-bottom"
-      viewBox="0 0 1000 100"
-      preserveAspectRatio="none"
-    >
-      <path class="dash-path" d="M0,80 Q500,0 1000,80" />
-    </svg>
+
+    <div class="sprinkles-bg"></div>
+    <div class="confetti-container" id="confetti-bg"></div>
 
     <div class="container">
       <header>
-        <h1>HBD<br />COLLECTIONS</h1>
-        <div class="subtitle">✨ Interactive Web Templates</div>
+        <svg
+          class="main-logo-svg"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            stroke="#18181b"
+            stroke-width="4"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          >
+            <ellipse cx="50" cy="85" rx="35" ry="10" fill="#e5e7eb" />
+            <path d="M25,85 V60 H75 V85" fill="#fbbf24" />
+            <path
+              d="M25,60 V50 Q25,40 35,40 H65 Q75,40 75,50 V60"
+              fill="#ff4785"
+            />
+            <path
+              d="M25,60 Q30,70 35,60 T45,60 T55,60 T65,60 T75,60"
+              fill="#ff4785"
+            />
+            <rect x="47" y="25" width="6" height="15" fill="white" />
+            <path
+              d="M50,15 Q53,20 50,25 Q47,20 50,15"
+              fill="#facc15"
+              stroke="none"
+            />
+            <path
+              d="M50,15 Q53,20 50,25 Q47,20 50,15"
+              fill="none"
+              stroke="#18181b"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+        <h1>
+          HBD
+          <span class="h1-sub">COLLECTIONS</span>
+        </h1>
+        <div class="badge">✨ Share Your Wishes ✨</div>
       </header>
 
-      <div id="loader" class="loader"></div>
+      <div id="loader" class="loader-box">
+        <div class="cake-loader"></div>
+      </div>
+
       <div id="project-grid"></div>
     </div>
 
     <script>
       const USER = "nabil-aba";
       const REPO = "hbd";
+      const ICONS = ["🎂", "🎁", "🎈", "🎉", "🕯️", "💌", "🍰", "🥳"];
+      const COLORS = ["#ff4785", "#4f46e5", "#fbbf24", "#22c55e", "#06b6d4"];
+
+      function setFavicon() {
+        const svg = document.querySelector(".main-logo-svg");
+        const serializer = new XMLSerializer();
+        const svgStr = serializer.serializeToString(svg);
+        const link = document.createElement("link");
+        link.type = "image/svg+xml";
+        link.rel = "icon";
+        link.href = "data:image/svg+xml;base64," + btoa(svgStr);
+        document.head.appendChild(link);
+      }
+
+      function createConfetti() {
+        const container = document.getElementById("confetti-bg");
+        const count = 30;
+        for (let i = 0; i < count; i++) {
+          const conf = document.createElement("div");
+          conf.className = "confetti";
+          conf.style.left = Math.random() * 100 + "vw";
+          conf.style.backgroundColor =
+            COLORS[Math.floor(Math.random() * COLORS.length)];
+          const size = Math.random() * 10 + 5 + "px";
+          conf.style.width = size;
+          conf.style.height = size;
+          if (Math.random() > 0.5) conf.style.borderRadius = "50%";
+          else conf.style.clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)";
+          conf.style.animationDuration = Math.random() * 3 + 3 + "s";
+          conf.style.animationDelay = Math.random() * 5 + "s";
+          container.appendChild(conf);
+        }
+      }
 
       function formatName(name) {
         return name.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
       }
 
       async function init() {
+        setFavicon();
+        createConfetti();
+
         const grid = document.getElementById("project-grid");
         const loader = document.getElementById("loader");
-        const cacheKey = `hbd_v5_${USER}`;
-
+        const cacheKey = `hbd_v3_${USER}`;
         try {
           let data = JSON.parse(sessionStorage.getItem(cacheKey));
           if (!data) {
@@ -375,58 +451,47 @@
             sessionStorage.setItem(cacheKey, JSON.stringify(data));
           }
           loader.style.display = "none";
-
           const folders = data.filter(
             (item) => item.type === "dir" && !item.name.startsWith(".")
           );
-
           if (folders.length === 0) {
             grid.innerHTML =
-              '<p style="text-align:center; font-weight:700;">No folders found.</p>';
+              '<div style="grid-column:1/-1;text-align:center;">No collections yet.</div>';
             return;
           }
-
           folders.forEach((item, i) => {
             const card = document.createElement("a");
             card.href = `./${item.name}/`;
             card.target = "_blank";
             card.className = "card";
             card.style.opacity = "0";
-            card.style.animation = `popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${
+            card.style.animation = `popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${
               i * 0.15
             }s`;
-
-            // Generate Nomor Urut (01, 02, dst)
-            const indexNum = (i + 1).toString().padStart(2, "0");
-
+            const icon = ICONS[Math.floor(Math.random() * ICONS.length)];
             card.innerHTML = `
-                        <div class="card-top">
-                            <span class="card-num">#${indexNum}</span>
-                            <i class="fa-regular fa-folder-open card-icon"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-title">${formatName(
-                              item.name
-                            )}</div>
-                        </div>
-                        <div class="card-footer">
-                            <span class="btn-text">OPEN PROJECT</span>
-                            <i class="fa-solid fa-arrow-right footer-arrow"></i>
-                        </div>
-                    `;
+                <div class="card-header">
+                    <div class="circles">
+                        <div class="c"></div><div class="c"></div><div class="c"></div>
+                    </div>
+                    <span class="card-tag">#${i + 1}</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon">${icon}</div>
+                    <div class="card-title">${formatName(item.name)}</div>
+                </div>
+                <div class="card-footer">
+                    <div class="open-btn">OPEN GIFT</div>
+                </div>
+            `;
             grid.appendChild(card);
           });
         } catch (error) {
-          console.error(error);
           loader.style.display = "none";
-          grid.innerHTML = "<p>Error loading data.</p>";
+          grid.innerHTML =
+            "<p style='text-align:center'>Gagal memuat data.</p>";
         }
       }
-
-      const style = document.createElement("style");
-      style.innerHTML = `@keyframes popIn { from { opacity:0; transform:scale(0.8) translateY(20px); } to { opacity:1; transform:scale(1) translateY(0); } }`;
-      document.head.appendChild(style);
-
       init();
     </script>
   </body>
